@@ -67,5 +67,21 @@ while True:
          mycursor.execute(sql,data)
          mydb.commit()
         except mysql.connector.Error as e:
-         print('Thank you Welcome to next time ')
+
+            print('Thank you Welcome to next time ')     
+    elif(choice == 7):
+        print('Display the transaction details')
+        date = input('Enter the date where you need the transaction details (yyyy-mm-d) : ')
+        sql = "SELECT * FROM `items` WHERE `Date_`='"+date+"'"
+        try:
+            mycursor.execute(sql)
+            result = mycursor.fetchall()
+            for i in result:
+                print('name',i[1])
+                print('phone',i[2])
+                print('date',i[3])
+                print('Amount',i[4],'\n')
+            
+        except mysql.connector.Error as e:
+            SystemExit.exit('Selection error',e)
         break
