@@ -24,45 +24,48 @@ while True:
         l.append(total_price)
     elif(choice == 2):
         print('You had selected Tea')
-        # price = 10
-        # qua = int(input('Enter the quantity you need : '))
-        # total_price = price * qua
-        # l.append(total_price)
+        price = 10
+        qua = int(input('Enter the quantity you need : '))
+        total_price = price * qua
+        l.append(total_price)
     elif(choice == 3):
         print('You had selected Chips')
-        # price = 30
-        # qua = int(input('Enter the quantity you need : '))
-        # total_price = price * qua
-        # l.append(total_price)
+        price = 30
+        qua = int(input('Enter the quantity you need : '))
+        total_price = price * qua
+        l.append(total_price)
     elif(choice == 4):
         print('You had selected Biscuit')
-        # price = 50
-        # qua = int(input('Enter the quantity you need : '))
-        # total_price = price * qua
-        # l.append(total_price)
+        price = 50
+        qua = int(input('Enter the quantity you need : '))
+        total_price = price * qua
+        l.append(total_price)
     elif(choice == 5):
         print('You had selected Chocolate')
         price = 18
-        # qua = int(input('Enter the quantity you need : '))
-        # total_price = price * qua
-        # #print(total_price)
-        # l.append(total_price)
-        #print(l)
+        qua = int(input('Enter the quantity you need : '))
+        total_price = price * qua
+        print(total_price)
+        l.append(total_price)
+        print(l)
     elif(choice == 6):
         print('You enter into billing section')
-        # name = input('Enter the name : ')
-        # phone = input('Enter the phone number : ')
-        # dates = input('Enter the date in the form of yyyy-mm-d : ')
-        
-        # count = 0
-        # for i in l:
-        #     count = count + i
-
-        # amount = count
-        # #print(f'Total amount {count} ') 
-        # sql = "INSERT INTO `items`(`Name`, `Phone_number`, `Date_`, `Total_Amount`) VALUES (%s,%s,%s,%s)"
-        # data = (name,phone,dates,amount)
-        # mycursor.execute(sql,data)
-        # mydb.commit()
-        # print('Thank you Welcome to next time ')
+        name = input('Enter the name : ')
+        phone = input('Enter the phone number : ')
+        dates = input('Enter the date in the form of yyyy-mm-d : ')
+        list = []
+        list.extend (1)
+        count = 0
+        for i in l:
+         count = count + i
+        list.remove(i)
+        amount = count
+        print(f'Total amount {count} ') 
+        sql = "INSERT INTO `items`(`Name`, `Phone_number`, `Date_`, `hoteldb`) VALUES (%s,%s,%s,%s)"
+        data = (name,phone,dates,amount)
+        try:
+         mycursor.execute(sql,data)
+         mydb.commit()
+        except mysql.connector.Error as e:
+         print('Thank you Welcome to next time ')
         break
