@@ -1,24 +1,46 @@
-while(True):
-    print("\n please select an option")
-    print("1 tea")
-    print("2 coffee")
-    print("3 buger")
-    print("4 sandwich")
-    print("5 alpham")
-    print("6 generate bill")
-    print("7 exit")
-    ch=int(input("enter the choice"))
-    if(ch==1):
-        print("added tea")
-    elif(ch==2):
+import mysql.connector
+import mysql.connector
+import sys
+from tabulate import tabulate
+try:
+mydb = mysql.connector.connect(host = 'localhost' , user = 'root' , password = '' , database = 'hoteldb')
+
+except mysql.connector.Error as e:
+
+    sys.exit('connection failure')
+    mycursor = mydb.cursor()
+l = []
+while True:
+    print('''
+        Item contain in the hotel
+        1 .coffee
+        2 .Tea
+        3 .Chips
+        4 .Biscuit
+        5 .Chocolate
+        6 .Billing
+        7 .view all transaction
+        8 .Day wise transaction summary
+        9 .transaction summary for a period
+        10 .Exit
+    ''')
+    choice = int(input('Enter the item you need from the display part : '))
+    
+    if(choice == 1):
+        print('You had selected coffee')
+        price = 15
+        qua = int(input('Enter the quantity you need : '))
+        total_price = price * qua
+        l.append(total_price)
+    elif(choice==2):
         print("added coffee")
-    elif(ch==3):
+    elif(choice==3):
         print("added buger")
-    elif(ch==4):
+    elif(choice==4):
         print("added sandwich")
-    elif(ch==5):
+    elif(choice==5):
         print("added alpham")
-    elif(ch==6):
+    elif(choice==6):
         print("generating bill")
-    elif(ch==7):
+    elif(choice==7):
         exit
