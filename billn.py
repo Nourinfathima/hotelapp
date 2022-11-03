@@ -84,4 +84,15 @@ while True:
             
         except mysql.connector.Error as e:
             SystemExit.exit('Selection error',e)
-        break
+    elif(choice == 8):
+        print('Display the transaction summary of particular day')
+        date = input('Enter the date for which the summary of transaction needed : ')
+        sql = "SELECT `Date_`, SUM(`Total_Amount`) FROM `items` WHERE `Date_`='"+date+"'"
+        try:
+            mycursor.execute(sql)
+            result = mycursor.fetchall()
+            print(result,headers=['date','amount'],tablefmt = "p sql")
+            print(result)  
+        except mysql.connector.Error as e:
+            SystemExit.exit('Searching date unavailable',e)
+            break
